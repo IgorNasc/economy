@@ -1,83 +1,27 @@
-# MDB Angular Boilerplate
+# Economy
 
-Free, responsive CRUD application starter with NgRx state management, Firebase backend and material design. Built with the newest Bootstrap 4, Angular 7 and MDBootstrap - powerful and free UI Kit, containing **400+** material UI elements, **600+** material icons, **74** CSS animations, SASS files, templates, tutorials and many more.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
 
-________
+## Development server
 
-# Live Preview:
-## https://ng-boilerplate.mdbootstrap.com/
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-# Technologies used
+## Code scaffolding
 
-* Angular 7
-* Bootstrap 4
-* MDBootstrap Angular
-* NgRx
-* Firebase
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-# Most important features
+## Build
 
-* NgRx state management
-* Real time updates with Firebase real time database
-* Admin panel - manage user content
-* Responsive design
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+## Running unit tests
 
-# Installation:
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-**Firebase configuration:**
-http://mdbootstrap.com/docs/angular/getting-started/boilerplate-installation
+## Running end-to-end tests
 
-**Install:**
-npm i
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-**Run:**
-ng serve -o
+## Further help
 
-**Test:**
-ng test
-
-**Production Build:**
-ng build --prod
-
-
-# FAQ
-http://mdbootstrap.com/angular/faq/
-
-# Documentation
-https://mdbootstrap.com/docs/angular/
-
-# Support:
-http://mdbootstrap.com/forums/forum/support/
-
-
-# Useful Links:
-
-Getting started: https://mdbootstrap.com/angular/angular-bootstrap-getting-started/
-
-5 min quick start: https://mdbootstrap.com/angular/mdb-quick-start/
-
-Material Design + Bootstrap Tutorial: https://mdbootstrap.com/bootstrap-tutorial/
-
-Material Design + WordPress Tutorial: https://mdbootstrap.com/wordpress-tutorial/
-
-Other Freebies: https://mdbootstrap.com/freebies/
-
-Premium Templates: https://mdbootstrap.com/templates/
-
-
-# Social Media:
-
-Twitter: https://twitter.com/MDBootstrap
-
-Facebook: https://www.facebook.com/mdbootstrap
-
-Pinterest: https://pl.pinterest.com/mdbootstrap
-
-Google+: https://plus.google.com/u/0/b/107863090883699620484/+Mdbootstrap/posts
-
-Dribbble: https://dribbble.com/mdbootstrap
-
-LinkedIn: https://www.linkedin.com/company/material-design-for-bootstrap
-
-# Visit our website: https://mdbootstrap.com/
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
