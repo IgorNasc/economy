@@ -3,14 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ChartsModule } from 'ng2-charts';
+import { HomeComponent } from './home/home.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ExtratoComponent } from './extrato/extrato.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    ExtratoComponent
   ],
   imports: [
     BrowserModule,
-    ChartsModule
+    ChartsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,91 @@
+<div class="row">
+  <div class="col-md-5">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Rendas do mês</h3>
+        <h5 class="mt-3">Rendas</h5>
+        <div class="mt-5">
+          <canvas baseChart [datasets]="doughnutChartData" [options]="doughnutChartOptions"
+            [labels]="doughnutChartLabels" [chartType]="doughnutChartType">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Rendas do mês</h3>
+        <div class="mt-5">
+          <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+            [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+          </canvas>
+        </div>
+        <div class="row mt-5 extratos">
+          <div class="col-md-12 date">
+            <h4 class="float-left">19</h4>
+            <hr />
+          </div>
+          <div class="col-md-12 mb-3">
+            <h5 class="float-left">Compra</h5>
+            <h5 class="float-right">R$ 50,00</h5>
+          </div>
+          <div class="col-md-12 mb-3">
+            <h5 class="float-left">Compra</h5>
+            <h5 class="float-right">R$ 50,00</h5>
+          </div>
+          <div class="col-md-12 mb-3">
+            <h5 class="float-left">Compra</h5>
+            <h5 class="float-right">R$ 50,00</h5>
+          </div>
+          <div class="col-md-12 mb-3">
+            <h5 class="float-left">Compra</h5>
+            <h5 class="float-right">R$ 50,00</h5>
+          </div>
+          <div class="col-md-12 mb-3">
+            <h5 class="float-left">Compra</h5>
+            <h5 class="float-right">R$ 50,00</h5>
+          </div>
+          <div class="col-md-12 date">
+            <h4 class="float-left">18</h4>
+            <hr />
+          </div>
+          <div class="col-md-12 mb-3">
+            <h5 class="float-left">Compra</h5>
+            <h5 class="float-right">R$ 50,00</h5>
+          </div>
+          <div class="col-md-12 mb-3">
+            <h5 class="float-left">Compra</h5>
+            <h5 class="float-right">R$ 50,00</h5>
+          </div>
+          <div class="col-md-12 mb-3">
+            <h5 class="float-left">Compra</h5>
+            <h5 class="float-right">R$ 50,00</h5>
+          </div>
+          <div class="col-md-12 mb-3">
+            <h5 class="float-left">Compra</h5>
+            <h5 class="float-right">R$ 50,00</h5>
+          </div>
+          <div class="col-md-12 date">
+            <h4 class="float-left">17</h4>
+            <hr />
+          </div>
+          <div class="col-md-12 mb-3">
+            <h5 class="float-left">Compra</h5>
+            <h5 class="float-right">R$ 50,00</h5>
+          </div>
+          <div class="col-md-12 mb-3">
+            <h5 class="float-left">Compra</h5>
+            <h5 class="float-right">R$ 50,00</h5>
+          </div>
+          <div class="col-md-12 mb-3">
+            <h5 class="float-left">Compra</h5>
+            <h5 class="float-right">R$ 50,00</h5>
+          </div>
+          <div class="col-md-12 mb-3">
+            <h5 class="float-left">Compra</h5>
+            <h5 class="float-right">R$ 50,00</h5>
+          </div>
+        </div>
+      </div>
+    </div>

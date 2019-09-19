@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+hr {
+  margin-left: 10px;
+  margin-top: 13px;
+  border-top-width: 4px;
+}
+
+.date h4 {
+  color: rgba(0, 0, 0, 0.28);
+  font-weight: bold;
+}
