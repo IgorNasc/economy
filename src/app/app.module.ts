@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 
 /* CALENDAR */
 import { CalendarModule, DateAdapter } from 'angular-calendar';
@@ -14,19 +15,22 @@ import { AppRoutingModule } from './app-routing.module';
 /* CHARTS */
 import { ChartsModule } from 'ng2-charts';
 
+/* NG-BOOTSTRAP */
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ExtratoComponent } from './extrato/extrato.component';
 import { AgendamentoComponent } from './agendamento/agendamento.component';
-import { CommonModule } from '@angular/common';
-import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ExtratoComponent,
-    AgendamentoComponent
+    AgendamentoComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -42,7 +42,7 @@ export class AgendamentoComponent {
 
   actions: CalendarEventAction[] = [
     {
-      label: '<i class="fa fa-fw fa-pencil"></i>',
+      label: '<i class="fas fa-edit"></i>',
       onClick: ({ event }: { event: CalendarEvent }): void => {
         this.handleEvent('Edited', event);
       }
