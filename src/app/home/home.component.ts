@@ -36,10 +36,14 @@ export class HomeComponent implements OnInit {
   public barChartPlugins = [pluginDataLabels];
 
   public barChartDataRenda: ChartDataSets[] = [
-    { data: [65], backgroundColor: "green", hoverBackgroundColor: "green" }
+    { data: [0], backgroundColor: "transparent", hoverBackgroundColor: "transparent" },
+    { data: [200], backgroundColor: "#1a981a", hoverBackgroundColor: "#1a981a" },
+    { data: [1000], backgroundColor: "transparent", hoverBackgroundColor: "transparent" }
   ];
   public barChartDataGasto: ChartDataSets[] = [
-    { data: [34, 65], backgroundColor: "blue", hoverBackgroundColor: "blue" }
+    { data: [0], backgroundColor: "transparent", hoverBackgroundColor: "transparent" },
+    { data: [600], backgroundColor: "#d12f2f", hoverBackgroundColor: "#d12f2f" },
+    { data: [1000], backgroundColor: "transparent", hoverBackgroundColor: "transparent" }
   ];
 
   constructor() { }

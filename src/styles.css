@@ -10,3 +10,83 @@ hr {
   color: rgba(0, 0, 0, 0.28);
   font-weight: bold;
 }
+
+.color-green{
+  color: #1a981a;
+}
+
+.color-red{
+  color: #d12f2f;
+}
+
+.fa-wallet::before {
+  color: #4478a6;
+}
+
+.fa-wallet {
+  border-color: #4478a6 !important;
+}
+
+.fa-home::before {
+  color: #9351ae;
+}
+
+.fa-home {
+  border-color: #9351ae !important;
+}
+
+.fa-university::before {
+  color: #bb7712;
+}
+
+.fa-university {
+  border-color: #bb7712 !important;
+}
+
+.fa-calculator::before {
+  color: #b0b0b0
+}
+
+.fa-calculator {
+  border-color: #b0b0b0 !important;
+}
+
+.fa-gift::before {
+  color: #e85f00;
+}
+
+.fa-gift {
+  border-color: #e85f00 !important;
+}
+
+.fa-shopping-cart::before {
+  color: #1aa81a;
+}
+
+.fa-shopping-cart {
+  border-color: #106e10 !important;
+}
+
+.fa-first-aid::before {
+  color: #b71b1b;
+}
+
+.fa-first-aid {
+  border-color: #b71b1b !important;
+}
+
+.fa-car-side::before {
+  color: #c885b9;
+}
+
+.fa-car-side {
+  border-color: #c885b9 !important;
+}
+
+.fa-cocktail::before {
+  color: purple;
+}
+
+.fa-cocktail {
+  border-color: purple !important;
+}

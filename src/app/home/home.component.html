@@ -3,11 +3,11 @@
     <div class="card">
       <div class="card-body">
         <h3 class="card-title">Rendas do mês</h3>
-        <h5 class="mt-3">Rendas</h5>
+        <h5 class="mt-3">Rendas - <span class="color-green">R$200,00</span></h5>
         <canvas class="renda-bar" baseChart [datasets]="barChartDataRenda" [options]="barChartOptions"
           [plugins]="barChartPluginsGasto" [chartType]="barChartType">
         </canvas>
-        <h5 class="mt-3">Gastos</h5>
+        <h5 class="mt-3">Gastos - <span class="color-red">R$600,00</span></h5>
         <canvas class="renda-bar" baseChart [datasets]="barChartDataGasto" [options]="barChartOptions"
           [plugins]="barChartPlugins" [chartType]="barChartType">
         </canvas>
@@ -20,23 +20,32 @@
           <div class="card-body">
             <h3 class="card-title mb-3">Agendamentos do mês</h3>
             <div class="row">
-              <div class="col-md-12 mb-3">
+              <div class="col-md-12 date">
+                <h4 class="float-left">19</h4>
+                <hr />
+              </div>
+              <div class="col-md-12 mb-3 data">
+                <i class="fas fa-wallet category-icon"></i>
                 <h5 class="float-left">Compra</h5>
                 <h5 class="float-right">R$ 50,00</h5>
               </div>
-              <div class="col-md-12 mb-3">
+              <div class="col-md-12 mb-3 data">
+                <i class="fas fa-home category-icon"></i>
                 <h5 class="float-left">Compra</h5>
                 <h5 class="float-right">R$ 50,00</h5>
               </div>
-              <div class="col-md-12 mb-3">
+              <div class="col-md-12 mb-3 data">
+                <i class="fas fa-university category-icon"></i>
                 <h5 class="float-left">Compra</h5>
                 <h5 class="float-right">R$ 50,00</h5>
               </div>
-              <div class="col-md-12 mb-3">
+              <div class="col-md-12 mb-3 data">
+                <i class="fas fa-calculator category-icon"></i>
                 <h5 class="float-left">Compra</h5>
                 <h5 class="float-right">R$ 50,00</h5>
               </div>
-              <div class="col-md-12 mb-3">
+              <div class="col-md-12 mb-3 data">
+                <i class="fas fa-gift category-icon"></i>
                 <h5 class="float-left">Compra</h5>
                 <h5 class="float-right">R$ 50,00</h5>
               </div>
@@ -56,23 +65,28 @@
             <h4 class="float-left">19</h4>
             <hr />
           </div>
-          <div class="col-md-12 mb-3">
+          <div class="col-md-12 mb-3 data">
+            <i class="fas fa-shopping-cart category-icon"></i>
             <h5 class="float-left">Compra</h5>
             <h5 class="float-right">R$ 50,00</h5>
           </div>
-          <div class="col-md-12 mb-3">
+          <div class="col-md-12 mb-3 data">
+            <i class="fas fa-first-aid category-icon"></i>
             <h5 class="float-left">Compra</h5>
             <h5 class="float-right">R$ 50,00</h5>
           </div>
-          <div class="col-md-12 mb-3">
+          <div class="col-md-12 mb-3 data">
+            <i class="fas fa-car-side category-icon"></i>
             <h5 class="float-left">Compra</h5>
             <h5 class="float-right">R$ 50,00</h5>
           </div>
-          <div class="col-md-12 mb-3">
+          <div class="col-md-12 mb-3 data">
+            <i class="fas fa-cocktail category-icon"></i>
             <h5 class="float-left">Compra</h5>
             <h5 class="float-right">R$ 50,00</h5>
           </div>
-          <div class="col-md-12 mb-3">
+          <div class="col-md-12 mb-3 data">
+            <i class="fas fa-car-side category-icon"></i>
             <h5 class="float-left">Compra</h5>
             <h5 class="float-right">R$ 50,00</h5>
           </div>
