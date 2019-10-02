@@ -24,9 +24,9 @@ export class ExtratoComponent implements OnInit {
     },
   };
 
-  public doughnutChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
+  public doughnutChartLabels: Label[] = ['Mercado', 'Saúde', 'Transporte', 'Bar'];
   public doughnutChartData: ChartDataSets[] = [
-    { data: [350, 450, 100], backgroundColor: ['green', 'blue', 'red'], hoverBackgroundColor: ['green', 'blue', 'red'] }
+    { data: [65, 59, 80, 81], backgroundColor: ['#1aa81a', '#b71b1b', '#c885b9', 'purple'], hoverBackgroundColor: ['#1aa81a', '#b71b1b', '#c885b9', 'purple'] }
   ];
   public doughnutChartType: ChartType = 'doughnut';
 
@@ -54,12 +54,12 @@ export class ExtratoComponent implements OnInit {
       }
     }
   };
-  public barChartLabels: Label[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  public barChartLabels: Label[] = ['Mercado', 'Saúde', 'Transporte', 'Bar'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = false;
   public barChartPlugins = [pluginDataLabels];
   public barChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40, 20], backgroundColor: ['green', 'blue', 'red'], hoverBackgroundColor: ['green', 'blue', 'red'] }
+    { data: [65, 59, 80, 81], backgroundColor: ['#1aa81a', '#b71b1b', '#c885b9', 'purple'], hoverBackgroundColor: ['#1aa81a', '#b71b1b', '#c885b9', 'purple'] }
   ];
 
   public randomize(): void {
