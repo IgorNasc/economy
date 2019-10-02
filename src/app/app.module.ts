@@ -18,11 +18,15 @@ import { ChartsModule } from 'ng2-charts';
 /* NG-BOOTSTRAP */
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
+/* NGX-BOOTSTRAP */
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ExtratoComponent } from './extrato/extrato.component';
 import { AgendamentoComponent } from './agendamento/agendamento.component';
 import { HeaderComponent } from './header/header.component';
+import { AddFormComponent } from './add-form/add-form.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { HeaderComponent } from './header/header.component';
     HomeComponent,
     ExtratoComponent,
     AgendamentoComponent,
-    HeaderComponent
+    HeaderComponent,
+    AddFormComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,8 @@ import { HeaderComponent } from './header/header.component';
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
-    })
+    }),
+    BsDatepickerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

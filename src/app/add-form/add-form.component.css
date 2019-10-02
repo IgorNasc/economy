@@ -1,0 +1,10 @@
+/* @import url("node_modules/ngx-bootstrap/datepicker/bs-datepicker.css"); */
+
+.add {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  position: fixed;
+  right: 15px;
+  bottom: 30px;
+}

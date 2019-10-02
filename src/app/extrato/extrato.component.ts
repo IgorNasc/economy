@@ -21,12 +21,12 @@ export class ExtratoComponent implements OnInit {
     // We use these empty structures as placeholders for dynamic theming.
     legend: {
       display: false
-    },
+    }
   };
 
-  public doughnutChartLabels: Label[] = ['Mercado', 'Saúde', 'Transporte', 'Bar'];
+  public doughnutChartLabels: Label[] = ['Mercado', 'Saúde', 'Transporte', 'Bar', 'Serviços', 'Contas', 'Outros'];
   public doughnutChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81], backgroundColor: ['#1aa81a', '#b71b1b', '#c885b9', 'purple'], hoverBackgroundColor: ['#1aa81a', '#b71b1b', '#c885b9', 'purple'] }
+    { data: [65, 59, 80, 81, 0, 0, 0], backgroundColor: ['#1aa81a', '#b71b1b', '#c885b9', 'purple'], hoverBackgroundColor: ['#1aa81a', '#b71b1b', '#c885b9', 'purple'] }
   ];
   public doughnutChartType: ChartType = 'doughnut';
 
@@ -54,12 +54,12 @@ export class ExtratoComponent implements OnInit {
       }
     }
   };
-  public barChartLabels: Label[] = ['Mercado', 'Saúde', 'Transporte', 'Bar'];
+  public barChartLabels: Label[] = ['Mercado', 'Saúde', 'Transporte', 'Bar', 'Serviços', 'Contas', 'Outros'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = false;
   public barChartPlugins = [pluginDataLabels];
   public barChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81], backgroundColor: ['#1aa81a', '#b71b1b', '#c885b9', 'purple'], hoverBackgroundColor: ['#1aa81a', '#b71b1b', '#c885b9', 'purple'] }
+    { data: [65, 59, 80, 81, 0, 0, 0], backgroundColor: ['#1aa81a', '#b71b1b', '#c885b9', 'purple'], hoverBackgroundColor: ['#1aa81a', '#b71b1b', '#c885b9', 'purple'] }
   ];
 
   public randomize(): void {

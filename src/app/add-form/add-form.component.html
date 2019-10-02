@@ -1,0 +1,55 @@
+<button class="btn btn-outline-primary add" (click)="openModal()"><i class="fas fa-plus"></i></button>
+
+<ng-template #modalContent let-close="close">
+  <div class="modal-header">
+    <h5 class="modal-title">Adicionar um gasto ou renda</h5>
+    <button type="button" class="close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form action="">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" id="nome">
+      </div>
+      <div class="mb-1">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="tipo" id="renda" value="renda" checked>
+          <label class="form-check-label" for="renda">
+            Renda
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="tipo" id="gasto" value="gasto">
+          <label class="form-check-label" for="gasto">
+            Gasto
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="valor">Valor</label>
+        <input type="number" class="form-control" id="valor">
+      </div>
+      <div class="form-group">
+        <label for="categoria">Categoria</label>
+        <select type="number" class="form-control" id="categoria">
+          <option value="">Selecione</option>
+          <option value="transporte">Transporte</option>
+          <option value="saude">Saúde</option>
+          <option value="bar">Bar</option>
+          <option value="mercado">mercado</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="data">Data</label>
+        <input type="text" placeholder="Datepicker" class="form-control" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" bsDatepicker>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="close()">
+      Salvar
+    </button>
+  </div>
+</ng-template>
