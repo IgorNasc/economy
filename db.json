@@ -1,33 +1,123 @@
 {
-    "category": [
-        {
-            "name": "name",
-            "icon": "icon",
-            "color": "color"
-        }
-    ],
-    "extrato": [
-        {
-            "name": "Spotify",
-            "type": "gasto",
-            "value": 16.90,
-            "category": {
-                "name": "name",
-                "icon": "icon",
-                "color": "color"
-            },
-            "date": "26/08/2019"
-        },
-        {
-            "name": "Investimento",
-            "type": "renda",
-            "value": 20,
-            "category": {
-                "name": "name",
-                "icon": "icon",
-                "color": "color"
-            },
-            "date": "15/10/2019"
-        }
-    ]
+  "category": [
+    {
+      "name": "Outras rendas",
+      "icon": "search-dollar",
+      "color": "#006d2c"
+    },
+    {
+      "name": "Remuneração",
+      "icon": "hand-holding-usd",
+      "color": "#00898d"
+    },
+    {
+      "name": "Rendimento",
+      "icon": "coins",
+      "color": "#00a09d"
+    },
+    {
+      "name": "Bônus",
+      "icon": "money-bill-alt",
+      "color": "#00aa5d"
+    },
+    {
+      "name": "Contas Residenciais",
+      "icon": "home",
+      "color": "#a649ce"
+    },
+    {
+      "name": "Educação",
+      "icon": "school",
+      "color": "#00bd6e"
+    },
+    {
+      "name": "Mercado",
+      "icon": "store",
+      "color": "#ea754b"
+    },
+    {
+      "name": "Moradia",
+      "icon": "house-damage",
+      "color": "#5b64de"
+    },
+    {
+      "name": "Saúde",
+      "icon": "heartbeat",
+      "color": "#ed4a4a"
+    },
+    {
+      "name": "Transporte",
+      "icon": "car",
+      "color": "#e6a42a"
+    },
+    {
+      "name": "Bares/Restaurante",
+      "icon": "utensils",
+      "color": "#e3427a"
+    },
+    {
+      "name": "Comidas",
+      "icon": "hamburger",
+      "color": "#812053"
+    },
+    {
+      "name": "Compras",
+      "icon": "shopping-bag",
+      "color": "#00b3ae"
+    },
+    {
+      "name": "Cuidados pessoais",
+      "icon": "user-shield",
+      "color": "#e061ce"
+    },
+    {
+      "name": "Despesas do trabalho",
+      "icon": "money-check-alt",
+      "color": "#7a37aa"
+    },
+    {
+      "name": "Lazer",
+      "icon": "umbrella-beach",
+      "color": "#82b0f9"
+    },
+    {
+      "name": "Outros gastos",
+      "icon": "calculator",
+      "color": "#006663"
+    },
+    {
+      "name": "Saques",
+      "icon": "money-bill-wave",
+      "color": "#00934d"
+    },
+    {
+      "name": "Serviços",
+      "icon": "#af712e",
+      "color": ""
+    }
+  ],
+  "extrato": [
+    {
+      "name": "Spotify",
+      "type": "gasto",
+      "value": 16.90,
+      "category": {
+        "name": "name",
+        "icon": "",
+        "color": ""
+      },
+      "date": "26/08/2019"
+    },
+    {
+      "name": "Investimento",
+      "type": "renda",
+      "value": 20,
+      "category": {
+        "name": "name",
+        "icon": "",
+        "color": ""
+      },
+      "date": "15/10/2019"
+    }
+  ]
 }
