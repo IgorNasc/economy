@@ -61,11 +61,19 @@
       <div class="card-body">
         <h3 class="mb-3">Extrato</h3>
         <div class="row">
-          <div class="col-md-12 date">
+          <!-- <div class="col-md-12 date">
             <h4 class="float-left">19</h4>
             <hr />
+          </div> -->
+
+          <div *ngFor="let operacao of extratoService.listActualExtract" class="col-md-12 mb-3 data">
+            <i [ngClass]="['fas', operacao.category.icon, 'category-icon']"
+              [ngStyle]="{'color':operacao.category.color, 'border-color':operacao.category.color}"></i>
+            <h5 class="float-left">{{operacao.name}}</h5>
+            <h5 class="float-right">R$ {{operacao.value}}</h5>
           </div>
-          <div class="col-md-12 mb-3 data">
+
+          <!-- <div class="col-md-12 mb-3 data">
             <i class="fas fa-shopping-cart category-icon"></i>
             <h5 class="float-left">Compra</h5>
             <h5 class="float-right">R$ 50,00</h5>
@@ -89,7 +97,7 @@
             <i class="fas fa-car-side category-icon"></i>
             <h5 class="float-left">Compra</h5>
             <h5 class="float-right">R$ 50,00</h5>
-          </div>
+          </div> -->
         </div>
         <a routerLink="/extrato" class="card-link float-right">Mais</a>
       </div>

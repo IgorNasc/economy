@@ -8,20 +8,20 @@
     </button>
   </div>
   <div class="modal-body">
-    <form action="">
+    <form (ngSubmit)="submit()">
       <div class="form-group">
         <label for="nome">Nome</label>
-        <input type="text" class="form-control" id="nome">
+        <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="extrato.name">
       </div>
       <div class="mb-1">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="tipo" id="renda" value="renda" checked>
+          <input class="form-check-input" type="radio" name="tipo" id="renda" value="renda" checked [(ngModel)]="extrato.type">
           <label class="form-check-label" for="renda">
             Renda
           </label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="tipo" id="gasto" value="gasto">
+          <input class="form-check-input" type="radio" name="tipo" id="gasto" value="gasto" [(ngModel)]="extrato.type">
           <label class="form-check-label" for="gasto">
             Gasto
           </label>
@@ -29,27 +29,26 @@
       </div>
       <div class="form-group">
         <label for="valor">Valor</label>
-        <input type="number" class="form-control" id="valor">
+        <input type="number" class="form-control" id="valor" name="valor" [(ngModel)]="extrato.value">
       </div>
       <div class="form-group">
         <label for="categoria">Categoria</label>
-        <select type="number" class="form-control" id="categoria">
+        <select type="number" class="form-control" id="categoria" name="categoria" [(ngModel)]="categorySelected">
           <option value="">Selecione</option>
-          <option value="transporte">Transporte</option>
+          <option *ngFor="let category of listCategory" [value]="category.id">{{category.name}}</option>
+          <!-- <option value="transporte">Transporte</option>
           <option value="saude">Saúde</option>
           <option value="bar">Bar</option>
-          <option value="mercado">mercado</option>
+          <option value="mercado">mercado</option> -->
         </select>
       </div>
       <div class="form-group">
         <label for="data">Data</label>
-        <input type="text" placeholder="Datepicker" class="form-control" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" bsDatepicker>
+        <input type="text" placeholder="Datepicker" class="form-control" name="data" [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" bsDatepicker [(ngModel)]="extrato.date">
       </div>
+      <button type="submit" class="btn btn-outline-secondary">
+        Salvar
+      </button>
     </form>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-secondary" (click)="close()">
-      Salvar
-    </button>
   </div>
 </ng-template>

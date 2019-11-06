@@ -2,122 +2,145 @@
   "category": [
     {
       "name": "Outras rendas",
-      "icon": "search-dollar",
-      "color": "#006d2c"
+      "icon": "fa-search-dollar",
+      "color": "#006d2c",
+      "id": 0
     },
     {
       "name": "Remuneração",
-      "icon": "hand-holding-usd",
-      "color": "#00898d"
+      "icon": "fa-hand-holding-usd",
+      "color": "#00898d",
+      "id": 1
     },
     {
       "name": "Rendimento",
-      "icon": "coins",
-      "color": "#00a09d"
+      "icon": "fa-coins",
+      "color": "#00a09d",
+      "id": 2
     },
     {
       "name": "Bônus",
-      "icon": "money-bill-alt",
-      "color": "#00aa5d"
+      "icon": "fa-money-bill-alt",
+      "color": "#00aa5d",
+      "id": 3
     },
     {
       "name": "Contas Residenciais",
-      "icon": "home",
-      "color": "#a649ce"
+      "icon": "fa-home",
+      "color": "#a649ce",
+      "id": 4
     },
     {
       "name": "Educação",
-      "icon": "school",
-      "color": "#00bd6e"
+      "icon": "fa-school",
+      "color": "#00bd6e",
+      "id": 5
     },
     {
       "name": "Mercado",
-      "icon": "store",
-      "color": "#ea754b"
+      "icon": "fa-store",
+      "color": "#ea754b",
+      "id": 6
     },
     {
       "name": "Moradia",
-      "icon": "house-damage",
-      "color": "#5b64de"
+      "icon": "fa-house-damage",
+      "color": "#5b64de",
+      "id": 7
     },
     {
       "name": "Saúde",
-      "icon": "heartbeat",
-      "color": "#ed4a4a"
+      "icon": "fa-heartbeat",
+      "color": "#ed4a4a",
+      "id": 8
     },
     {
       "name": "Transporte",
-      "icon": "car",
-      "color": "#e6a42a"
+      "icon": "fa-car",
+      "color": "#e6a42a",
+      "id": 9
     },
     {
       "name": "Bares/Restaurante",
-      "icon": "utensils",
-      "color": "#e3427a"
+      "icon": "fa-utensils",
+      "color": "#e3427a",
+      "id": 10
     },
     {
       "name": "Comidas",
-      "icon": "hamburger",
-      "color": "#812053"
+      "icon": "fa-hamburger",
+      "color": "#812053",
+      "id": 11
     },
     {
       "name": "Compras",
-      "icon": "shopping-bag",
-      "color": "#00b3ae"
+      "icon": "fa-shopping-bag",
+      "color": "#00b3ae",
+      "id": 12
     },
     {
       "name": "Cuidados pessoais",
-      "icon": "user-shield",
-      "color": "#e061ce"
+      "icon": "fa-user-shield",
+      "color": "#e061ce",
+      "id": 13
     },
     {
       "name": "Despesas do trabalho",
-      "icon": "money-check-alt",
-      "color": "#7a37aa"
+      "icon": "fa-money-check-alt",
+      "color": "#7a37aa",
+      "id": 14
     },
     {
       "name": "Lazer",
-      "icon": "umbrella-beach",
-      "color": "#82b0f9"
+      "icon": "fa-umbrella-beach",
+      "color": "#82b0f9",
+      "id": 15
     },
     {
       "name": "Outros gastos",
-      "icon": "calculator",
-      "color": "#006663"
+      "icon": "fa-calculator",
+      "color": "#006663",
+      "id": 16
     },
     {
       "name": "Saques",
-      "icon": "money-bill-wave",
-      "color": "#00934d"
+      "icon": "fa-money-bill-wave",
+      "color": "#00934d",
+      "id": 17
     },
     {
       "name": "Serviços",
-      "icon": "#af712e",
-      "color": ""
+      "icon": "fa-#af712e",
+      "color": "",
+      "id": 18
     }
   ],
   "extrato": [
     {
-      "name": "Spotify",
-      "type": "gasto",
-      "value": 16.90,
+      "name": "123",
+      "type": "renda",
+      "value": 123,
+      "date": "2019-11-06T13:05:27.000Z",
       "category": {
-        "name": "name",
-        "icon": "",
-        "color": ""
+        "name": "Outras rendas",
+        "icon": "fa-search-dollar",
+        "color": "#006d2c",
+        "id": 0
       },
-      "date": "26/08/2019"
+      "id": 4
     },
     {
-      "name": "Investimento",
+      "name": "1234",
       "type": "renda",
-      "value": 20,
+      "value": 1234,
+      "date": "2019-11-07T13:55:27.000Z",
       "category": {
-        "name": "name",
-        "icon": "",
-        "color": ""
+        "name": "Rendimento",
+        "icon": "fa-coins",
+        "color": "#00a09d",
+        "id": 2
       },
-      "date": "15/10/2019"
+      "id": 5
     }
   ]
 }

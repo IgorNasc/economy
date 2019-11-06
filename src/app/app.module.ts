@@ -27,6 +27,7 @@ import { ExtratoComponent } from './extrato/extrato.component';
 import { AgendamentoComponent } from './agendamento/agendamento.component';
 import { HeaderComponent } from './header/header.component';
 import { AddFormComponent } from './add-form/add-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AddFormComponent } from './add-form/add-form.component';
       provide: DateAdapter,
       useFactory: adapterFactory
     }),
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
