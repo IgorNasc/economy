@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import * as pluginDataLabels from 'chart.js';
+import { GastoService } from 'src/app/services/gasto.service';
 
 @Component({
   selector: 'app-home',
@@ -46,11 +47,6 @@ export class HomeComponent implements OnInit {
     { data: [1000], backgroundColor: "transparent", hoverBackgroundColor: "transparent" }
   ];
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
     console.log(event, active);
@@ -73,4 +69,10 @@ export class HomeComponent implements OnInit {
     this.barChartDataRenda[0].data = data;
     this.barChartDataGasto[0].data = data;
   }
+
+  constructor(private gastoService: GastoService) { }
+
+  ngOnInit() {
+  }
+
 }
