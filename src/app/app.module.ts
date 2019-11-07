@@ -22,11 +22,11 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { ExtratoComponent } from './extrato/extrato.component';
-import { AgendamentoComponent } from './agendamento/agendamento.component';
-import { HeaderComponent } from './header/header.component';
-import { AddFormComponent } from './add-form/add-form.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ExtratoComponent } from './pages/extrato/extrato.component';
+import { AgendamentoComponent } from './pages/agendamento/agendamento.component';
+import { HeaderComponent } from './pages/header/header.component';
+import { AddFormComponent } from './pages/add-form/add-form.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({

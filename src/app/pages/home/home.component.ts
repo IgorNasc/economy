@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import * as pluginDataLabels from 'chart.js';
-import { ExtratoService } from '../services/extrato.service';
-import { Extrato } from '../model/extrato.model';
 
 @Component({
   selector: 'app-home',
@@ -48,9 +46,7 @@ export class HomeComponent implements OnInit {
     { data: [1000], backgroundColor: "transparent", hoverBackgroundColor: "transparent" }
   ];
 
-  constructor(private extratoService: ExtratoService) { }
-
-  listExtrato: Array<Extrato>;
+  constructor() { }
 
   ngOnInit() {
   }

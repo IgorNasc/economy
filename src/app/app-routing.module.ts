@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { ExtratoComponent } from './extrato/extrato.component';
-import { AgendamentoComponent } from './agendamento/agendamento.component';
-import { AddFormComponent } from './add-form/add-form.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ExtratoComponent } from './pages/extrato/extrato.component';
+import { AgendamentoComponent } from './pages/agendamento/agendamento.component';
+import { AddFormComponent } from './pages/add-form/add-form.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

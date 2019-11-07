@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ExtratoService } from './extrato.service';
+import { RendaService } from './renda.service';
 
-describe('ExtratoService', () => {
+describe('RendaService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: ExtratoService = TestBed.get(ExtratoService);
+    const service: RendaService = TestBed.get(RendaService);
     expect(service).toBeTruthy();
   });
 });

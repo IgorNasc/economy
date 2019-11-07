@@ -16,7 +16,7 @@ export class CategoryService {
   constructor(private httpClient: HttpClient) { }
 
   private getUrl(): string {
-    return environment.REQUEST_URL + 'extrato';
+    return environment.REQUEST_URL + 'categorys';
   }
 
   loadCategory(): Observable<Array<Category>> {

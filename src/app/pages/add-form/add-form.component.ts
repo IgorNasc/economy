@@ -1,9 +1,12 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { CategoryService } from '../services/category.service';
-import { Category } from '../model/category.model';
-import { Extrato } from '../model/extrato.model';
-import { ExtratoService } from '../services/extrato.service';
+
+import { CategoryService } from '../../services/category.service';
+import { GastoService } from '../../services/gasto.service';
+import { RendaService } from 'src/app/services/renda.service';
+
+import { Category } from '../../model/category.model';
+import { Operation } from '../../model/operations.model';
 
 @Component({
   selector: 'app-add-form',
@@ -12,20 +15,24 @@ import { ExtratoService } from '../services/extrato.service';
 })
 export class AddFormComponent implements OnInit {
 
+  keyGasto: string = 'gasto';
+  keyRenda: string = 'renda';
+
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
   listCategory: Array<Category>;
-  extrato: Extrato = new Extrato();
-  categorySelected: number;
+  operation: Operation = new Operation();
+  date: Date;
 
   constructor(private modal: NgbModal,
     private categoryService: CategoryService,
-    private extratoService: ExtratoService) { }
+    private gastoService: GastoService,
+    private rendaService: RendaService) { }
 
   ngOnInit() {
     this.loadCategory();
   }
 
-  openModal(): void {
+  openModal() {
     this.modal.open(this.modalContent, { size: 'lg' });
   }
 
@@ -33,15 +40,17 @@ export class AddFormComponent implements OnInit {
     this.categoryService.loadCategory().subscribe(
       (data: Array<Category>) => {
         this.listCategory = data;
+      },
+      (error: any) => {
+        alert(error);
       }
     );
   }
 
   submit() {
-    this.extrato.category = this.listCategory.find(category => category.id == this.categorySelected);
-
-    this.extratoService.saveExtract(this.extrato);
-
+    if (this.operation.type == this.keyGasto) this.gastoService.saveGasto(this.operation, this.date);
+    else if (this.operation.type == this.keyRenda) this.rendaService.saveRenda(this.operation, this.date);
+    
     this.modal.dismissAll();
   }
 
