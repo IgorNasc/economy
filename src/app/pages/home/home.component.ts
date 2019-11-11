@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import * as pluginDataLabels from 'chart.js';
 import { GastoService } from 'src/app/services/gasto.service';
+import { RendaService } from 'src/app/services/renda.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,18 @@ import { GastoService } from 'src/app/services/gasto.service';
 })
 export class HomeComponent implements OnInit {
 
-  public barChartOptions: ChartOptions = {
+  maiorValor: number = 0;
+  barChartDataRenda: ChartDataSets[] = [
+    { data: [0], backgroundColor: "transparent", hoverBackgroundColor: "transparent" },
+    // { data: [this.rendaService.rendaTotal], backgroundColor: "#1a981a", hoverBackgroundColor: "#1a981a" },
+    // { data: [this.maiorValor], backgroundColor: "transparent", hoverBackgroundColor: "transparent" }
+  ];
+  barChartDataGasto: Array<ChartDataSets> = [
+    { data: [0], backgroundColor: "transparent", hoverBackgroundColor: "transparent" },
+    // { data: [this.gastoService.gastoTotal], backgroundColor: "#d12f2f", hoverBackgroundColor: "#d12f2f" },
+    // { data: [this.maiorValor], backgroundColor: "transparent", hoverBackgroundColor: "transparent" }
+  ];
+  private barChartOptions: ChartOptions = {
     responsive: true,
     // We use these empty structures as placeholders for dynamic theming.
     scales: {
@@ -33,19 +45,39 @@ export class HomeComponent implements OnInit {
     },
     events: []
   };
-  public barChartType: ChartType = 'horizontalBar';
-  public barChartPlugins = [pluginDataLabels];
+  private barChartType: ChartType = 'horizontalBar';
+  private barChartPlugins = [pluginDataLabels];
 
-  public barChartDataRenda: ChartDataSets[] = [
-    { data: [0], backgroundColor: "transparent", hoverBackgroundColor: "transparent" },
-    { data: [200], backgroundColor: "#1a981a", hoverBackgroundColor: "#1a981a" },
-    { data: [1000], backgroundColor: "transparent", hoverBackgroundColor: "transparent" }
-  ];
-  public barChartDataGasto: ChartDataSets[] = [
-    { data: [0], backgroundColor: "transparent", hoverBackgroundColor: "transparent" },
-    { data: [600], backgroundColor: "#d12f2f", hoverBackgroundColor: "#d12f2f" },
-    { data: [1000], backgroundColor: "transparent", hoverBackgroundColor: "transparent" }
-  ];
+  constructor(
+    private gastoService: GastoService,
+    private rendaService: RendaService) { }
+
+  ngOnInit() {
+    (async () => {
+      this.delay(1000).then(
+        (out) => {
+          this.maiorValor = this.rendaService.rendaTotal > this.gastoService.gastoTotal ?
+          this.rendaService.rendaTotal : this.gastoService.gastoTotal
+
+          this.barChartDataGasto = [
+            { data: [0], backgroundColor: "transparent", hoverBackgroundColor: "transparent" },
+            { data: [this.gastoService.gastoTotal], backgroundColor: "#d12f2f", hoverBackgroundColor: "#d12f2f" },
+            { data: [this.maiorValor], backgroundColor: "transparent", hoverBackgroundColor: "transparent" }
+          ];
+
+          this.barChartDataRenda = [
+            { data: [0], backgroundColor: "transparent", hoverBackgroundColor: "transparent" },
+            { data: [this.rendaService.rendaTotal], backgroundColor: "#1a981a", hoverBackgroundColor: "#1a981a" },
+            { data: [this.maiorValor], backgroundColor: "transparent", hoverBackgroundColor: "transparent" }
+          ];
+        }
+      );
+    })();
+  }
+
+  delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
@@ -54,25 +86,6 @@ export class HomeComponent implements OnInit {
 
   public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
     console.log(event, active);
-  }
-
-  public randomize(): void {
-    // Only Change 3 values
-    const data = [
-      Math.round(Math.random() * 100),
-      59,
-      80,
-      (Math.random() * 100),
-      56,
-      (Math.random() * 100),
-      40];
-    this.barChartDataRenda[0].data = data;
-    this.barChartDataGasto[0].data = data;
-  }
-
-  constructor(private gastoService: GastoService) { }
-
-  ngOnInit() {
   }
 
 }

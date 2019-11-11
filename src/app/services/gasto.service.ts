@@ -21,6 +21,7 @@ export class GastoService {
   listGastos: Array<Gastos>;
   listPastGastos: Array<Gastos>;
   listFutureGastos: Array<Gastos>;
+  gastoTotal: number = 0;
 
   private getUrl(): string {
     return environment.REQUEST_URL + 'gastos';
@@ -30,7 +31,7 @@ export class GastoService {
     let request: Observable<any>;
     let gasto: Gastos;
 
-    if(this.listGastos != null){
+    if (this.listGastos != null) {
       gasto = this.listGastos.find(gasto =>
         new Date(gasto.date).getDate() == date.getDate()
         && new Date(gasto.date).getMonth() == date.getMonth()
@@ -90,8 +91,16 @@ export class GastoService {
           && new Date(gasto.date).getMonth() >= date.getMonth()
           && new Date(gasto.date).getFullYear() >= date.getFullYear()
         );
+
+        this.maxGastoValue();
       }
     );
+  }
+
+  maxGastoValue() {
+    this.listPastGastos.forEach(gasto => gasto.operations.forEach(
+      operation => this.gastoTotal += operation.value
+    ));
   }
 
   private handleError(error: HttpErrorResponse) {
