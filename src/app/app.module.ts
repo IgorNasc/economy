@@ -28,6 +28,8 @@ import { AgendamentoComponent } from './pages/agendamento/agendamento.component'
 import { HeaderComponent } from './pages/header/header.component';
 import { AddFormComponent } from './pages/add-form/add-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { OperationsComponent } from './pages/operations/operations.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     ExtratoComponent,
     AgendamentoComponent,
     HeaderComponent,
-    AddFormComponent
+    AddFormComponent,
+    OperationsComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ import { HttpClientModule } from '@angular/common/http';
       useFactory: adapterFactory
     }),
     BsDatepickerModule.forRoot(),
+    TabsModule.forRoot(),
     HttpClientModule
   ],
   providers: [],

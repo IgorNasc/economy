@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
 import * as pluginDataLabels from 'chart.js';
+import { GastoService } from 'src/app/services/gasto.service';
+import { RendaService } from 'src/app/services/renda.service';
 
 @Component({
   selector: 'app-extrato',
@@ -10,7 +12,9 @@ import * as pluginDataLabels from 'chart.js';
 })
 export class ExtratoComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private gastoService: GastoService,
+    private rendaService: RendaService) { }
 
   ngOnInit() {
   }

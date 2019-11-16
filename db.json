@@ -117,18 +117,20 @@
   ],
   "rendas": [
     {
-      "date": "2019-11-06T13:05:27.000Z",
+      "id": 0,
+      "date": "2019-11-04T13:53:20.000Z",
       "operations": [
         {
-          "name": "123",
+          "name": "3",
           "type": "renda",
-          "value": 123,
+          "value": 3,
           "category": {
-            "name": "Outras rendas",
-            "icon": "fa-search-dollar",
-            "color": "#006d2c",
-            "id": 0
-          }
+            "name": "Saúde",
+            "icon": "fa-heartbeat",
+            "color": "#ed4a4a",
+            "id": 8
+          },
+          "id": 0
         }
       ]
     }

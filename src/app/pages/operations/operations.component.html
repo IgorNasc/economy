@@ -1,0 +1,36 @@
+<div class="mt-5">
+    <tabset [justified]="true">
+        <tab heading="Renda">
+            <div class="row">
+                <ng-template ngFor let-renda [ngForOf]="rendaService.listPastRendas">
+                    <div class="col-md-12 date">
+                        <h4 class="float-left">{{renda.date | date: 'dd'}}</h4>
+                        <hr />
+                    </div>
+                    <div *ngFor="let operation of renda.operations" class="col-md-12 mb-3 data">
+                        <i [ngClass]="['fas', operation.category.icon, 'category-icon']"
+                            [ngStyle]="{'color':operation.category.color, 'border-color':operation.category.color}"></i>
+                        <h5 class="float-left">{{operation.name}}</h5>
+                        <h5 class="float-right">R$ {{operation.value}}</h5>
+                    </div>
+                </ng-template>
+            </div>
+        </tab>
+        <tab heading="Gastos">
+            <div class="row">
+                <ng-template ngFor let-gasto [ngForOf]="gastoService.listPastGastos">
+                    <div class="col-md-12 date">
+                        <h4 class="float-left">{{gasto.date | date: 'dd'}}</h4>
+                        <hr />
+                    </div>
+                    <div *ngFor="let operation of gasto.operations" class="col-md-12 mb-3 data">
+                        <i [ngClass]="['fas', operation.category.icon, 'category-icon']"
+                            [ngStyle]="{'color':operation.category.color, 'border-color':operation.category.color}"></i>
+                        <h5 class="float-left">{{operation.name}}</h5>
+                        <h5 class="float-right">R$ {{operation.value}}</h5>
+                    </div>
+                </ng-template>
+            </div>
+        </tab>
+    </tabset>
+</div>
