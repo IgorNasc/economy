@@ -2,7 +2,7 @@
     <tabset [justified]="true">
         <tab heading="Renda">
             <div class="row">
-                <ng-template ngFor let-renda [ngForOf]="rendaService.listPastRendas">
+                <ng-template ngFor let-renda [ngForOf]="futureOperations ? rendaService.listFutureRendas : rendaService.listPastRendas">
                     <div class="col-md-12 date">
                         <h4 class="float-left">{{renda.date | date: 'dd'}}</h4>
                         <hr />
@@ -18,12 +18,12 @@
         </tab>
         <tab heading="Gastos">
             <div class="row">
-                <ng-template ngFor let-gasto [ngForOf]="gastoService.listPastGastos">
+                <ng-template ngFor let-gasto [ngForOf]="futureOperations ? gastoService.listFutureGastos : gastoService.listPastGastos">
                     <div class="col-md-12 date">
                         <h4 class="float-left">{{gasto.date | date: 'dd'}}</h4>
                         <hr />
                     </div>
-                    <div *ngFor="let operation of gasto.operations" class="col-md-12 mb-3 data">
+                    <div *ngFor="let operation of gasto.operations" class="col-md-12 mb-3 data" (click)="editOperation(operation)">
                         <i [ngClass]="['fas', operation.category.icon, 'category-icon']"
                             [ngStyle]="{'color':operation.category.color, 'border-color':operation.category.color}"></i>
                         <h5 class="float-left">{{operation.name}}</h5>

@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, DoCheck } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import * as pluginDataLabels from 'chart.js';
 import { GastoService } from 'src/app/services/gasto.service';
 import { RendaService } from 'src/app/services/renda.service';
+import { HeaderService } from 'src/app/services/header.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, DoCheck {
 
   maiorValor: number = 0;
   barChartDataRenda: ChartDataSets[] = [
@@ -47,36 +48,43 @@ export class HomeComponent implements OnInit {
   };
   private barChartType: ChartType = 'horizontalBar';
   private barChartPlugins = [pluginDataLabels];
+  private month: number = 0;
 
   constructor(
     private gastoService: GastoService,
-    private rendaService: RendaService) { }
+    private rendaService: RendaService,
+    private headerService: HeaderService) { }
 
   ngOnInit() {
-    (async () => {
-      this.delay(1000).then(
-        (out) => {
-          this.maiorValor = this.rendaService.rendaTotal > this.gastoService.gastoTotal ?
-          this.rendaService.rendaTotal : this.gastoService.gastoTotal
-
-          this.barChartDataGasto = [
-            { data: [0], backgroundColor: "transparent", hoverBackgroundColor: "transparent" },
-            { data: [this.gastoService.gastoTotal], backgroundColor: "#d12f2f", hoverBackgroundColor: "#d12f2f" },
-            { data: [this.maiorValor], backgroundColor: "transparent", hoverBackgroundColor: "transparent" }
-          ];
-
-          this.barChartDataRenda = [
-            { data: [0], backgroundColor: "transparent", hoverBackgroundColor: "transparent" },
-            { data: [this.rendaService.rendaTotal], backgroundColor: "#1a981a", hoverBackgroundColor: "#1a981a" },
-            { data: [this.maiorValor], backgroundColor: "transparent", hoverBackgroundColor: "transparent" }
-          ];
-        }
-      );
-    })();
+    this.asyncLoadGrath();
   }
 
-  delay(ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+  ngDoCheck() {
+    if (this.headerService.getMonth() != this.month) {
+      this.asyncLoadGrath();
+      this.month = this.headerService.getMonth();
+    }
+  }
+
+  async asyncLoadGrath() {
+    new Promise(resolve => setTimeout(resolve, 1000)).then(
+      (out) => {
+        this.maiorValor = this.rendaService.maxRendaValue()[0] > this.gastoService.maxGastoValue()[0] ?
+          this.rendaService.maxRendaValue()[0] : this.gastoService.maxGastoValue()[0]
+
+        this.barChartDataGasto = [
+          { data: [0], backgroundColor: "transparent", hoverBackgroundColor: "transparent" },
+          { data: this.gastoService.maxGastoValue(), backgroundColor: "#d12f2f", hoverBackgroundColor: "#d12f2f" },
+          { data: [this.maiorValor], backgroundColor: "transparent", hoverBackgroundColor: "transparent" }
+        ];
+
+        this.barChartDataRenda = [
+          { data: [0], backgroundColor: "transparent", hoverBackgroundColor: "transparent" },
+          { data: this.rendaService.maxRendaValue(), backgroundColor: "#1a981a", hoverBackgroundColor: "#1a981a" },
+          { data: [this.maiorValor], backgroundColor: "transparent", hoverBackgroundColor: "transparent" }
+        ];
+      }
+    );
   }
 
   // events

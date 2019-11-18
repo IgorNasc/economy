@@ -8,13 +8,16 @@ import { environment } from 'src/environments/environment';
 
 import { Operation } from '../model/operations.model';
 import { Renda } from '../model/renda.model';
+import { HeaderService } from './header.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RendaService {
 
-  constructor(private httpClient: HttpClient) {
+  constructor(
+    private httpClient: HttpClient,
+    private headerService: HeaderService) {
     this.loadRendas();
   }
 
@@ -73,6 +76,7 @@ export class RendaService {
     ).subscribe(
       (data: Array<Renda>) => {
         let date = new Date();
+        let dia = date.getMonth() != this.headerService.getMonth() ? date.getDate() : 31;
 
         data = data.sort((g1, g2) => {
           if (new Date(g1.date) < new Date(g2.date)) return -1;
@@ -82,25 +86,30 @@ export class RendaService {
 
         this.listRendas = data;
         this.listPastRendas = data.filter(renda =>
-          new Date(renda.date).getDate() <= date.getDate()
-          && new Date(renda.date).getMonth() <= date.getMonth()
+          new Date(renda.date).getDate() <= dia
+          && new Date(renda.date).getMonth() == this.headerService.getMonth()
           && new Date(renda.date).getFullYear() <= date.getFullYear()
         );
         this.listFutureRendas = data.filter(renda =>
-          new Date(renda.date).getDate() > date.getDate()
-          && new Date(renda.date).getMonth() >= date.getMonth()
+          new Date(renda.date).getDate() > dia
+          && new Date(renda.date).getMonth() == this.headerService.getMonth()
           && new Date(renda.date).getFullYear() >= date.getFullYear()
         );
 
-        this.maxGastoValue();
+        // this.maxGastoValue();
       }
     );
   }
 
-  maxGastoValue() {
+  maxRendaValue(): Array<number> {
+    let listTotal = new Array<number>();
+    let total = 0;
     this.listPastRendas.forEach(renda => renda.operations.forEach(
-      operation => this.rendaTotal += operation.value
+      operation => total += operation.value
     ));
+    listTotal.push(total);
+
+    return listTotal;
   }
 
   private handleError(error: HttpErrorResponse) {
