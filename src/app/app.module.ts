@@ -26,7 +26,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ExtratoComponent } from './pages/extrato/extrato.component';
 import { AgendamentoComponent } from './pages/agendamento/agendamento.component';
 import { HeaderComponent } from './pages/header/header.component';
-import { AddFormComponent } from './pages/add-form/add-form.component';
+import { AddFormComponent, NgbdModalContent } from './pages/add-form/add-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { OperationsComponent } from './pages/operations/operations.component';
@@ -39,7 +39,8 @@ import { OperationsComponent } from './pages/operations/operations.component';
     AgendamentoComponent,
     HeaderComponent,
     AddFormComponent,
-    OperationsComponent
+    OperationsComponent,
+    NgbdModalContent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +60,9 @@ import { OperationsComponent } from './pages/operations/operations.component';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    NgbdModalContent
+  ]
 })
 export class AppModule { }

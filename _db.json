@@ -159,6 +159,30 @@
       "date": "2019-11-05T14:00:12.000Z",
       "operations": [
         {
+          "name": "1",
+          "type": "gasto",
+          "value": 1,
+          "category": {
+            "name": "Transporte",
+            "icon": "fa-car",
+            "color": "#e6a42a",
+            "id": 9
+          },
+          "id": 0
+        },
+        {
+          "name": "2",
+          "type": "gasto",
+          "value": 2,
+          "category": {
+            "name": "Educação",
+            "icon": "fa-school",
+            "color": "#00bd6e",
+            "id": 5
+          },
+          "id": 1
+        },
+        {
           "name": "50",
           "value": 50,
           "type": "gasto",
@@ -214,7 +238,7 @@
         {
           "name": "nome",
           "type": "gasto",
-          "value": 70,
+          "value": 1245,
           "category": {
             "name": "Compras",
             "icon": "fa-shopping-bag",

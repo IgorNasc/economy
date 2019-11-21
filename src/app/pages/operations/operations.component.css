@@ -1,0 +1,18 @@
+.action {
+  display: block;
+  margin-top: 4px;
+  margin-left: 10px;
+}
+
+.trash {
+  color: #eb3443;
+}
+
+.edit {
+  color: #3a32a8;
+}
+
+.trash:hover,
+.edit:hover {
+  cursor: pointer;
+}

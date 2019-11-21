@@ -21,9 +21,9 @@ export class RendaService {
     this.loadRendas();
   }
 
-  listRendas: Array<Renda>;
-  listPastRendas: Array<Renda>;
-  listFutureRendas: Array<Renda>;
+  listRendas: Array<Renda> = new Array<Renda>();
+  listPastRendas: Array<Renda> = new Array<Renda>();
+  listFutureRendas: Array<Renda> = new Array<Renda>();
   rendaTotal: number = 0;
 
   private getUrl(): string {
@@ -43,8 +43,10 @@ export class RendaService {
     }
 
     if (renda != null) {
-      operation.id = renda.operations[renda.operations.length - 1].id + 1;
-      renda.operations.push(operation);
+      if(operation.id == null) {
+        operation.id = renda.operations[renda.operations.length - 1].id + 1;
+        renda.operations.push(operation);
+      }
 
       request = this.httpClient.put(this.getUrl() + '/' + renda.id, renda);
     }
@@ -97,6 +99,24 @@ export class RendaService {
         );
 
         // this.maxGastoValue();
+      }
+    );
+  }
+
+  deleteRenda(operation: Operation) {
+    let renda: Renda;
+
+    if (this.listRendas != null) {
+      renda = this.listRendas.find(ren =>
+        ren.operations.find(oper => oper == operation)
+      );
+    }
+
+    renda.operations = renda.operations.filter(oper => oper != operation);
+
+    this.httpClient.put(this.getUrl() + '/' + renda.id, renda).subscribe(
+      () => {
+        this.loadRendas();
       }
     );
   }

@@ -21,9 +21,9 @@ export class GastoService {
     this.loadGastos();
   }
 
-  listGastos: Array<Gastos>;
-  listPastGastos: Array<Gastos>;
-  listFutureGastos: Array<Gastos>;
+  listGastos: Array<Gastos> = new Array<Gastos>();
+  listPastGastos: Array<Gastos> = new Array<Gastos>();
+  listFutureGastos: Array<Gastos> = new Array<Gastos>();
   gastoTotal: number = 0;
 
   private getUrl(): string {
@@ -43,8 +43,10 @@ export class GastoService {
     }
 
     if (gasto != null) {
-      operation.id = gasto.operations[gasto.operations.length - 1].id + 1;
-      gasto.operations.push(operation);
+      if (operation.id == null) {
+        operation.id = gasto.operations[gasto.operations.length - 1].id + 1;
+        gasto.operations.push(operation);
+      }
 
       request = this.httpClient.put(this.getUrl() + '/' + gasto.id, gasto);
     }
@@ -97,6 +99,24 @@ export class GastoService {
         );
 
         // this.maxGastoValue();
+      }
+    );
+  }
+
+  deleteGasto(operation: Operation) {
+    let gasto: Gastos;
+
+    if (this.listGastos != null) {
+      gasto = this.listGastos.find(gasto =>
+        gasto.operations.find(oper => oper == operation)
+      );
+    }
+
+    gasto.operations = gasto.operations.filter(oper => oper != operation);
+
+    this.httpClient.put(this.getUrl() + '/' + gasto.id, gasto).subscribe(
+      () => {
+        this.loadGastos();
       }
     );
   }
