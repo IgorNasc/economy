@@ -1,7 +1,7 @@
 <div class="mt-5">
   <tabset [justified]="true">
     <tab heading="Renda">
-      <div class="row">
+      <div class="row mt-3">
         <ng-template ngFor let-renda
           [ngForOf]="futureOperations ? rendaService.listFutureRendas : rendaService.listPastRendas">
           <div class="col-md-12 date">
@@ -20,7 +20,7 @@
       </div>
     </tab>
     <tab heading="Gastos">
-      <div class="row">
+      <div class="row mt-3">
         <ng-template ngFor let-gasto
           [ngForOf]="futureOperations ? gastoService.listFutureGastos : gastoService.listPastGastos">
           <div class="col-md-12 date">

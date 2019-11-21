@@ -1,23 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { ChartType, ChartOptions, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
 import * as pluginDataLabels from 'chart.js';
 import { GastoService } from 'src/app/services/gasto.service';
 import { RendaService } from 'src/app/services/renda.service';
+import { Category } from 'src/app/model/category.model';
+import { CategoryService } from 'src/app/services/category.service';
+import { Operation } from 'src/app/model/operations.model';
+import { HeaderService } from 'src/app/services/header.service';
 
 @Component({
   selector: 'app-extrato',
   templateUrl: './extrato.component.html',
   styleUrls: ['./extrato.component.css']
 })
-export class ExtratoComponent implements OnInit {
+export class ExtratoComponent implements OnInit, DoCheck {
 
-  constructor(
-    private gastoService: GastoService,
-    private rendaService: RendaService) { }
-
-  ngOnInit() {
-  }
+  listCategoryName: Array<string> = new Array<string>();
+  listCategoryColor: Array<string> = new Array<string>();
+  listCategoryValue: Array<number> = new Array<number>();
 
   // Doughnut
   public doughnutChartOptions: ChartOptions = {
@@ -27,10 +28,13 @@ export class ExtratoComponent implements OnInit {
       display: false
     }
   };
-
-  public doughnutChartLabels: Label[] = ['Mercado', 'Saúde', 'Transporte', 'Bar', 'Serviços', 'Contas', 'Outros'];
+  public doughnutChartLabels: Label[] = [''];
   public doughnutChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 0, 0, 0], backgroundColor: ['#1aa81a', '#b71b1b', '#c885b9', 'purple'], hoverBackgroundColor: ['#1aa81a', '#b71b1b', '#c885b9', 'purple'] }
+    {
+      data: [0],
+      backgroundColor: [''],
+      hoverBackgroundColor: ['']
+    }
   ];
   public doughnutChartType: ChartType = 'doughnut';
 
@@ -58,25 +62,73 @@ export class ExtratoComponent implements OnInit {
       }
     }
   };
-  public barChartLabels: Label[] = ['Mercado', 'Saúde', 'Transporte', 'Bar', 'Serviços', 'Contas', 'Outros'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = false;
   public barChartPlugins = [pluginDataLabels];
+
+  public barChartLabels: Label[] = [''];
   public barChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 0, 0, 0], backgroundColor: ['#1aa81a', '#b71b1b', '#c885b9', 'purple'], hoverBackgroundColor: ['#1aa81a', '#b71b1b', '#c885b9', 'purple'] }
+    {
+      data: [0],
+      backgroundColor: [''],
+      hoverBackgroundColor: ['']
+    }
   ];
 
-  public randomize(): void {
-    // Only Change 3 values
-    const data = [
-      Math.round(Math.random() * 100),
-      59,
-      80,
-      (Math.random() * 100),
-      56,
-      (Math.random() * 100),
-      40];
-    this.barChartData[0].data = data;
+  private month: number = 0;
+
+  constructor(
+    private gastoService: GastoService,
+    private rendaService: RendaService,
+    private categoryService: CategoryService,
+    private headerService: HeaderService) { }
+
+  ngOnInit() {
+    // this.loadCategory();
+  }
+
+  ngDoCheck() {
+    if (this.headerService.getMonth() != this.month) {
+      this.loadCategory();
+      this.month = this.headerService.getMonth();
+    }
+  }
+
+  async loadCategory() {
+    this.listCategoryName = new Array<string>();
+    this.listCategoryColor = new Array<string>();
+    this.listCategoryValue = new Array<number>();
+
+    this.categoryService.loadCategory().subscribe(
+      (data: Array<Category>) => {
+        data.forEach(cate => {
+          this.listCategoryName.push(cate.name);
+          this.listCategoryColor.push(cate.color);
+          this.listCategoryValue.push(this.gastoService.maxGastoByCategory(cate));
+        });
+
+        this.barChartLabels = this.listCategoryName;
+        this.barChartData = [
+          {
+            data: this.listCategoryValue,
+            backgroundColor: this.listCategoryColor,
+            hoverBackgroundColor: this.listCategoryColor
+          }
+        ];
+
+        this.doughnutChartLabels = this.listCategoryName;
+        this.doughnutChartData = [
+          {
+            data: this.listCategoryValue,
+            backgroundColor: this.listCategoryColor,
+            hoverBackgroundColor: this.listCategoryColor
+          }
+        ]
+      },
+      (error: any) => {
+        alert(error);
+      }
+    );
   }
 
 }

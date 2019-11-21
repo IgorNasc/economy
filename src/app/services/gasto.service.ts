@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 import { Operation } from '../model/operations.model';
 import { Gastos } from '../model/gasto.model';
 import { HeaderService } from './header.service';
+import { Category } from '../model/category.model';
 
 @Injectable({
   providedIn: 'root'
@@ -130,6 +131,17 @@ export class GastoService {
     listTotal.push(total);
 
     return listTotal;
+  }
+
+  maxGastoByCategory(category: Category): number {
+    let total = 0;
+    this.listPastGastos.forEach(gasto => gasto.operations.forEach(
+      operation => {
+        if(operation.category.name == category.name) total += operation.value;
+      }
+    ));
+
+    return total;
   }
 
   private handleError(error: HttpErrorResponse) {
